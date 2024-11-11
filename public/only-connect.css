@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+
+	font-family: sans-serif;
+	color: #FFFFFF;
+}
+
+.playarea {
+	max-width: calc(100vh * 1.7778);
+	position: relative;
+}
+
+.wall {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 10px 10px;
+	padding: 10px;
+}
+
+.wall.player {
+	box-sizing: border-box;
+	width: 100%;
+	transition: width 1s ease;
+}
+
+.wall.editor {
+	grid-template-columns: repeat(4, 1fr) 2fr;
+}
+
+.wall.links {
+	grid-template-columns: 1fr;
+}
+
+@media screen and (orientation:landscape) {
+	.wall.player.won {
+		width: 66%;
+	}
+
+	.wall.links {
+		box-sizing: border-box;
+		width: 33%;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+.wall>div {
+	position: relative;
+}
+
+.wall.player .brick,
+.wall.links .link {
+	height: 100%;
+
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.wall.player .brick {
+	position: relative;
+	top: 0;
+	left: 0;
+	transition: top 0.5s ease, left 0.5s ease;
+}
+
+.brick {
+	border-radius: 5px;
+	transition-duration: 0.5s;
+
+	color: #1D3C4C;
+	background-image: url('clue-icon-unselected.png');
+	background-size: 100% 100%;
+}
+
+.brick.group0 {
+	color: #FFFFFF;
+	background-image: url('clue-icon-selected-darkblue.png');
+	background-size: 100% 100%;
+}
+
+.brick.group1 {
+	color: #FFFFFF;
+	background-image: url('clue-icon-selected-green.png');
+	background-size: 100% 100%;
+}
+
+.brick.group2 {
+	color: #FFFFFF;
+	background-image: url('clue-icon-selected-red.png');
+	background-size: 100% 100%;
+}
+
+.brick.group3 {
+	color: #FFFFFF;
+	background-image: url('clue-icon-selected-cyan.png');
+	background-size: 100% 100%;
+}
+
+.link.group0 {
+	border: 2px solid #054872;
+}
+
+.link.group1 {
+	border: 2px solid #097B5A;
+}
+
+.link.group2 {
+	border: 2px solid #572143;
+}
+
+.link.group3 {
+	border: 2px solid #056F7C;
+}
+
+.link .hidden {
+	font-style: italic;
+}
+
+.wall.editor input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 3px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFFFFF;
+}
+
+input[type=button] {
+	margin: 10px;
+	padding: 5px;
+	background: #FFFFFF;
+	border-radius: 5px;
+	outline: none;
+}
+
+textarea {
+	margin: 10px;
+	width: 800px;
+	height: 100px;
+	outline: none;
+}
+
+.flexContainer {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+	width: 100%;
+}
+
+.timeBar {
+	width: 73%;
+	border-radius: 5px;
+	margin: 10px;
+	background: #c3eaff;
+}
+
+.time {
+	background: #1D3C4C;
+	border-radius: 5px;
+	height: 100%;
+	animation: 150s linear timeBarAnimation;
+}
+
+.time.animated {
+	animation: 150s linear timeBarAnimation;
+}
+
+@keyframes timeBarAnimation {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+.life {
+	background: url('oc3d\ by\ hv.png');
+	background-size: 100% 100%;
+	width: 100px;
+	height: 100px;
+	margin: 0px 30px;
+	opacity: 0;
+}
+
+.life.fI {
+	animation: 0.15s linear lifeFadeIn forwards;
+}
+
+.life.fO {
+	animation: 0.15s linear lifeFadeOut forwards;
+}
+
+@keyframes lifeFadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes lifeFadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

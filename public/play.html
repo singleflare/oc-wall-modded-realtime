@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Only Connect</title>
+	<link rel="stylesheet" href="only-connect.css">
+	<script src="socket.io/socket.io.js"></script>
+	<script src="only-connect.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+		integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+</head>
+
+<body>
+	<script>
+		wall(getData());
+	</script>
+	<div class='flexContainer'>
+		<div class='life' id='life1'></div>
+		<div class='life' id='life2'></div>
+		<div class='life' id='life3'></div>
+		<div class='timeBar'>
+			<div class='time'></div>
+		</div>
+	</div>
+</body>
+
+</html>
